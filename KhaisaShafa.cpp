@@ -7,16 +7,14 @@ void DiamondUp(int row)
 //initial space -> 0
 //initial stars -> row;
 
-int space= -1;
+int space=0;
 for (int star = row - 1; star > 0; star--)
     {
-        for (int k = star; k > 0; k--) cout <<"* "; //Left
+        for (int k = star; k > 0; k--) cout <<"*"; //Left
 
-        for (int k = space+1; k > 0; k--) cout <<"  "; //MidSpace
+        for (int k = 0; k < space; k++) cout <<"  "; //MidSpace
         
-        for (int k = space+1; k > 0; k--) cout <<"  "; //Midspace
-
-        for (int k = star; k > 0; k--) cout <<"* "; //Right
+        for (int k = star; k > 0; k--) cout <<"*"; //Right
         
         space++;
         cout << endl;
@@ -28,13 +26,11 @@ void DiamondDown (int row)
     space = row-1;
     for(int star = 1; star < row; star++)
     {
-	    for(int i = 0; i < star; i++) cout<<"* "; //Left
+	    for(int i = 0; i < star; i++) cout<<"*"; //Left
 
-	    for(int i = space*3+1; i > star;i--)cout<<" "; //MidSpace
+	    for(int i = 0; i < ((2*row)-(2*star)-2);i++)cout<<" "; //MidSpace
 
-        for(int i = space+3; i < star ;i++)cout<<" "; //MidSpace
-
-        for(int i = 0; i < star; i++) cout<<"* "; //Right
+	    for(int i = star; i > 0; i--) cout<<"*"; //Right
 
         space--;
         cout<<endl;
@@ -58,4 +54,5 @@ int main(void)
     
     return 0;
 }
+
 
